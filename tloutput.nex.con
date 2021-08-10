@@ -1,0 +1,9 @@
+#NEXUS 
+[Consensus Tree for /Users/varsharamineni/Documents/MATLAB/TraitLabSDLT-master/tloutput.nex]
+
+BEGIN TREES;
+
+tree treename = [&R] (((avestan:1114.4688,oldpersian:1186.9279):1257.6753,vedic:1523.4316):579.7397,((oldcslavonic:1032.9303,((latvian:1347.8338,lithuanian:1347.8338):1105.3199,oldprussian:1497.3101):0):1137.808,(lycian:1369.1284,(armenian:2579.3765,((tocharian_b:480.5862,tocharian_a:531.2912):1041.3102,((((oldhighgerman:446.163,oldenglish:452.7277):301.9347,oldnorse:1078.2442):657.224,gothic:859.4943):1563.1324,(luvian:1897.6875,((welsh:1801.0222,oldirish:538.6534):1903.2162,((latin:1656.3093,(umbrian:1252.0855,oscan:1478.4265):0):914.5014,(hittite:1964.2146,(greek:2853.2546,albanian:4053.9785):0):0):0):0):0):0):0):0):0):0);
+
+END;
+
