@@ -58,6 +58,7 @@ if nargin==1 || isempty(lambda)
        
        % new likelihood - V
            llkd = MissingNorm + freq_lkd_multi(state2freq(state), s, state.mu); 
+           %llkd = 0;
            
 
    else
@@ -71,6 +72,7 @@ elseif nargin==2
  
         [liklihood, means] = freq_lkd(state2freq(state), s, state.mu, lambda);
         llkd = MissingNorm + liklihood; 
+        %llkd = 0;
 
 end
 
