@@ -13,14 +13,24 @@ leaves = state.leaves;
 mat = zeros(state.L, state.NS);
 
 % fill in mat 
-% missing data coded as 2 - change to 0
 i = 1;
 for l = leaves
     cogs = s(l).dat;
-    cogs(cogs > 1) = 0;
+    %cogs(cogs > 1) = 0;
     mat(:,i) = cogs;
     i = i+1;
 end
+
+% fill in mat 
+% remove traits with many missing values ( > 10%) 
+for i = 1:state.NS
+    if sum (mat(:,i) == 2) > 0.1*(state.NS);
+        mat(:,i) = zeros(1, state.L);
+    end
+end
+
+% change missive values to 0
+mat(mat > 1) = 0;
 
 freq = sum(mat, 2).'; % get frequencies 
 a = unique(freq); 
