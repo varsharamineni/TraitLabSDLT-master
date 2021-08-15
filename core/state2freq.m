@@ -29,7 +29,7 @@ for i = 1:state.NS
     end
 end
 
-% change missive values to 0
+% change missing values to 0
 mat(mat > 1) = 0;
 
 freq = sum(mat, 2).'; % get frequencies 
