@@ -305,6 +305,9 @@ tree   tree0292  =  ((((((latin:0.1,oscan:0.1):0.1,umbrian:0.1):0.1,((vedic:0.1,
 tree   tree0293  =  ((armenian:0.1,(albanian:0.1,(gothic:0.1,((oldhighgerman:0.1,oldenglish:0.1):0.1,oldnorse:0.1):0.1):0.1):0.1):0.1,(luvian:0.1,(((vedic:0.1,(avestan:0.1,oldpersian:0.1):0.1):0.1,(hittite:0.1,((oldcslavonic:0.1,(oldprussian:0.1,(lithuanian:0.1,latvian:0.1):0.1):0.1):0.1,((tocharian_a:0.1,tocharian_b:0.1):0.1,(oscan:0.1,(latin:0.1,umbrian:0.1):0.1):0.1):0.1):0.1):0.1):0.1,((lycian:0.1,(welsh:0.1,oldirish:0.1):0.1):0.1,greek:0.1):0.1):0.1):0.1);
 tree   tree0294  =  ((((vedic:0.1,(avestan:0.1,oldpersian:0.1):0.1):0.1,(luvian:0.1,(armenian:0.1,(oldcslavonic:0.1,((lithuanian:0.1,latvian:0.1):0.1,oldprussian:0.1):0.1):0.1):0.1):0.1):0.1,((welsh:0.1,oldirish:0.1):0.1,((lycian:0.1,((albanian:0.1,((tocharian_a:0.1,tocharian_b:0.1):0.1,(gothic:0.1,((oldhighgerman:0.1,oldenglish:0.1):0.1,oldnorse:0.1):0.1):0.1):0.1):0.1,((oscan:0.1,umbrian:0.1):0.1,latin:0.1):0.1):0.1):0.1,hittite:0.1):0.1):0.1):0.1,greek:0.1);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of bc79f8d (output)
+=======
 >>>>>>> parent of bc79f8d (output)
 =======
 >>>>>>> parent of bc79f8d (output)
