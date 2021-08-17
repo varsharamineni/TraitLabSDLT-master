@@ -1,4 +1,4 @@
-% Run parameters accompanying .nex and .txt file for TraitLab MCMC run on 16-Aug-2021 17:43:49
+% Run parameters accompanying .nex and .txt file for TraitLab MCMC run on 17-Aug-2021 10:55:27
 
 % FULL PATH OF DATA FILE INCLUDE .NEX EXTENSION
 Data_file_name = P:\My Documents\GitHub\TraitLabSDLT-master\RingeSwadesh100finescreenbinbayes.nex
@@ -43,7 +43,7 @@ Omit_clade_ages_list =
 
 Vary_loss_rate = 1
 % FOLLOWING IS IGNORED WHEN Random_initial_loss_rate == 1
-Initial_loss_rate = 0.126987
+Initial_loss_rate = 0.174057
 Random_initial_loss_rate = 1
 
 Account_for_lateral_transfer = 0
