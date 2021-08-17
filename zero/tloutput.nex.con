@@ -1,0 +1,9 @@
+#NEXUS 
+[Consensus Tree for /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/tloutput.nex]
+
+BEGIN TREES;
+
+tree treename = [&R] (((latvian:1344.1696,lithuanian:1344.1696):741.3544,(oldprussian:1803.9321,oldcslavonic:1222.2983):0):887.4689,((latin:1056.5831,(umbrian:1007.0235,oscan:929.0855):0):1112.0192,(lycian:2038.6667,((gothic:835.667,((oldenglish:479.0954,oldhighgerman:458.8154):287.0413,oldnorse:1064.1297):644.3165):1305.2177,(greek:2700.1227,(albanian:3807.5263,(hittite:1521.9984,((welsh:2148.8587,oldirish:914.1805):1283.9438,(armenian:2351.7852,((tocharian_b:488.783,tocharian_a:480.1006):1464.0513,(luvian:1832.0466,((avestan:1013.3987,oldpersian:1047.3388):833.5033,vedic:1008.4913):1012.8422):0):0):0):0):0):0):0):0):0):0);
+
+END;
+
