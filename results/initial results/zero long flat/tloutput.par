@@ -1,4 +1,4 @@
-% Run parameters accompanying .nex and .txt file for TraitLab MCMC run on 24-Aug-2021 17:44:36
+% Run parameters accompanying .nex and .txt file for TraitLab MCMC run on 20-Aug-2021 11:58:04
 
 % FULL PATH OF DATA FILE INCLUDE .NEX EXTENSION
 Data_file_name = /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/RingeSwadesh100finescreenbinbayes.nex
@@ -43,7 +43,7 @@ Omit_clade_ages_list =
 
 Vary_loss_rate = 1
 % FOLLOWING IS IGNORED WHEN Random_initial_loss_rate == 1
-Initial_loss_rate = 0.245929
+Initial_loss_rate = 0.905792
 Random_initial_loss_rate = 1
 
 Account_for_lateral_transfer = 0
@@ -64,8 +64,8 @@ Random_initial_cat_rate = 0
 
 Model_missing = 0
 
-Run_length = 5000
-Sample_interval = 100
+Run_length = 6e+06
+Sample_interval = 6000
 
 Seed_random_numbers = 0
 % FOLLOWING IS IGNORED UNLESS Seed_random_numbers == 1
@@ -74,6 +74,6 @@ With_seed = 0
 % OUTPUT FILE NAME OMITTING PATH AND ANY EXTENSIONS
 Output_file_name = tloutput
 % FULL PATH FOR DIRECTORY TO OUTPUT FILES
-Output_path_name = /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/
+Output_path_name = /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/zero long flat/
 
 %Gaps are treated as missing data. To change this, edit GlobalValues.m.

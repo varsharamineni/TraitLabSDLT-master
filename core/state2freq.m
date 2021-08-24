@@ -16,21 +16,21 @@ mat = zeros(state.L, state.NS);
 i = 1;
 for l = leaves
     cogs = s(l).dat;
-    %cogs(cogs > 1) = 0;
+    cogs(cogs > 1) = 0; % take missing values as 0
     mat(:,i) = cogs;
     i = i+1;
 end
 
 % fill in mat 
 % remove traits with many missing values ( > 10%) 
-for i = 1:state.NS
-    if sum (mat(:,i) == 2) > 0.1*(state.NS);
-        mat(:,i) = zeros(1, state.L);
-    end
-end
+%for i = 1:state.NS
+%    if sum (mat(:,i) == 2) > 0.1*(state.NS);
+%        mat(:,i) = zeros(1, state.L);
+%    end
+%end
 
 % change missing values to 0
-mat(mat > 1) = 0;
+%mat(mat > 1) = 0;
 
 freq = sum(mat, 2).'; % get frequencies 
 a = unique(freq); 
