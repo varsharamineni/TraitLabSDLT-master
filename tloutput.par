@@ -1,20 +1,24 @@
+<<<<<<< Updated upstream
 % Run parameters accompanying .nex and .txt file for TraitLab MCMC run on 24-Aug-2021 17:44:36
+=======
+% Run parameters accompanying .nex and .txt file for TraitLab MCMC run on 16-Aug-2021 08:47:05
+>>>>>>> Stashed changes
 
 % FULL PATH OF DATA FILE INCLUDE .NEX EXTENSION
 Data_file_name = /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/RingeSwadesh100finescreenbinbayes.nex
 
 % ONE OF THE FOLLOWING THREE OPTIONS MUST BE ONE, THE OTHERS 0
-Start_from_rand_tree = 1
-Start_from_tree_in_output = 0
+Start_from_rand_tree = 0
+Start_from_tree_in_output = 1
 Start_from_true_tree = 0
 
 % VALUE OF THETA IGNORED UNLESS Start_from_rand_tree == 1
-Theta = 0.001000
+Theta = 0.000842
 
 % NEXT TWO FIELDS IGNORED UNLESS Start_from_tree_in_output == 1
 % FULL PATH OF OLD OUTPUT FILE INCLUDE .NEX EXTENSION
-Tree_file_name = 
-Use_tree = 0
+Tree_file_name = /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/tloutput.nex
+Use_tree = 569
 
 Omit_taxa = 0
 % LIST IS IGNORED UNLESS Omit_taxa == 1 CAN USE MATLAB VECTOR NOTATION
@@ -43,7 +47,11 @@ Omit_clade_ages_list =
 
 Vary_loss_rate = 1
 % FOLLOWING IS IGNORED WHEN Random_initial_loss_rate == 1
+<<<<<<< Updated upstream
 Initial_loss_rate = 0.245929
+=======
+Initial_loss_rate = 0.950058
+>>>>>>> Stashed changes
 Random_initial_loss_rate = 1
 
 Account_for_lateral_transfer = 0
@@ -64,8 +72,13 @@ Random_initial_cat_rate = 0
 
 Model_missing = 0
 
+<<<<<<< Updated upstream
 Run_length = 5000
 Sample_interval = 100
+=======
+Run_length = 1e+06
+Sample_interval = 3000
+>>>>>>> Stashed changes
 
 Seed_random_numbers = 0
 % FOLLOWING IS IGNORED UNLESS Seed_random_numbers == 1
