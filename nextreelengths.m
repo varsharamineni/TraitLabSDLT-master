@@ -19,6 +19,6 @@ for i = 1:N
     lengths(i) = TreeLength(s, state.root);
 end
 
-dlmwrite(fullfile(folder, 'treelength.txt'), lengths.', 'precision',5,'delimiter',',')
+%dlmwrite(fullfile(folder, 'treelength.txt'), lengths.', 'precision',5,'delimiter',',')
 
 end

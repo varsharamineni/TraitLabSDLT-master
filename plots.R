@@ -4,19 +4,18 @@ library(cowplot)
 
 
 
-treelens_flat <- readr::read_table("flat 3mill/treelength.txt", col_names = c('lens'))
+treelens_flat <- readr::read_table("flat 6mill/treelength.txt", col_names = c('lens'))
 treelens_flat_zero <- readr::read_table("flat 6mill zero/treelength.txt", col_names = c('lens'))
 treelens_yule_zero <- readr::read_table("yule 6mill zero/treelength.txt", col_names = c('lens'))
-treelens_yule <- readr::read_table("yule 3mill/treelength.txt", col_names = c('lens'))
+treelens_yule <- readr::read_table("yule 6mill/treelength.txt", col_names = c('lens'))
 
-data_yule <- readr::read_table("yule 3mill/tloutput.txt", skip = 3, 
+data_yule <- readr::read_table("yule 6mill/tloutput.txt", skip = 3, 
                           col_names = 
                             c('Sample', 'log_prior', 'integrated_llkd', 
                              'root_time', 'mu', 'p', 'lambda', 'kappa', 
                              'rho', 'ncat', 'log_likelihood', 'beta', 'NA'))
-data_flat[500:1000,]['root_time'] %>% mean(na.rm = TRUE)
 
-data_flat <- readr::read_table("flat 3mill/tloutput.txt", skip = 3, 
+data_flat <- readr::read_table("flat 6mill/tloutput.txt", skip = 3, 
                                col_names = 
                                  c('Sample', 'log_prior', 'integrated_llkd', 
                                    'root_time', 'mu', 'p', 'lambda', 'kappa', 
@@ -32,7 +31,6 @@ data_zero_flat <- readr::read_table("flat 6mill zero/tloutput.txt", skip = 3,
                                       c('Sample', 'log_prior', 'integrated_llkd', 
                                         'root_time', 'mu', 'p', 'lambda', 'kappa', 
                                         'rho', 'ncat', 'log_likelihood', 'beta', 'NA'))
-data_zero_flat[500:1000,]['root_time'] %>% mean()
 
 
 colors <- c("Posterior" = '#a1d76a', "Prior" = '#e9a3c9')
