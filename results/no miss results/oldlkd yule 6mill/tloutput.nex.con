@@ -1,0 +1,9 @@
+#NEXUS 
+[Consensus Tree for /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/results/no miss results/oldlkd yule 6mill/tloutput.nex]
+
+BEGIN TREES;
+
+tree treename = [&R] (albanian:8758.409,((hittite:1482.9921,(lycian:1325.4799,luvian:264.6305):1181.7844):3378.5271,((tocharian_b:517.3398,tocharian_a:536.8354):5921.1617,(greek:4788.2696,(armenian:5833.4324,(((vedic:1359.1432,(avestan:718.498,oldpersian:814.7617):1374.6557):1460.1279,((oldprussian:2148.966,(latvian:1343.915,lithuanian:1343.915):1394.1977):559.6976,oldcslavonic:2241.0987):2799.4959):813.8959,((latin:967.4801,(umbrian:757.5323,oscan:758.2295):295.1755):2574.7307,((gothic:648.9631,((oldenglish:436.366,oldhighgerman:379.074):355.4006,oldnorse:1090.862):414.8844):3324.8024,(oldirish:1395.4434,welsh:2562.4968):3148.3262):0):991.0184):713.3576):0):473.14):0):709.8379);
+
+END;
+

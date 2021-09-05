@@ -64,7 +64,7 @@ data_flat_zero_old <- readr::read_table("oldlkd flat 6mill zero/tloutput.txt", s
 
 
 # PLOTTING
-colors <- c("Posterior" = '#a1d76a', "Prior" = '#e9a3c9', "Posterior (full data)" = 'green')
+colors <- c("Posterior" = '#e9a3c9', "Prior" = '#a1d76a')
 #"flat" = '#67a9cf', "flat-zero" = '#ef8a62')
 
 
@@ -89,7 +89,7 @@ plot2 <- ggplot() + geom_histogram(data = data_yule[500:1000,], aes(x = root_tim
   scale_x_continuous('root time', breaks = seq(0,20000,2500), limits = c(0,20000)) + 
   geom_histogram(data = data_zero_yule[500:1000,], aes(x = root_time, color = "Prior"), bins = 100, alpha = 0.3, fill = "white") + 
   labs(title='Histogram for root time- Yule Prior') +
-  scale_color_manual(values = colors) +
+  #scale_color_manual(values = colors) +
   theme(legend.position="none") 
 
 
@@ -106,7 +106,7 @@ plot4 <- ggplot() + geom_histogram(data = data_yule[500:1000,], aes(x = mu, colo
   scale_y_continuous('count', limits = c(0,35))  + 
   geom_histogram(data = data_zero_yule[500:1000,], aes(x = mu,  color = "Prior"), bins = 100,  alpha = 0.3, fill = "white") + 
   labs(title=expression(paste("Histogram for ", mu, "- Yule Prior"))) + 
-  scale_color_manual(values = colors) + 
+  #scale_color_manual(values = colors) + 
   theme(legend.position="none")
 
 plot5 <- ggplot() + geom_histogram(data = treelens_flat[500:1000,], aes(x = lens, color = "Posterior"), fill = 'white', bins = 100,  alpha = 0.3) + 
@@ -117,11 +117,11 @@ plot5 <- ggplot() + geom_histogram(data = treelens_flat[500:1000,], aes(x = lens
 plot6 <- ggplot() + geom_histogram(data = treelens_yule[500:1000,], aes(x = lens, color = "Posterior"), fill = 'white', bins = 100,  alpha = 0.3) + 
   geom_histogram(data = treelens_yule_zero[500:1000,], aes(x = lens, color = "Prior"), fill = 'white', bins = 100, alpha = 0.3) + 
   labs(title= "Histogram for tree length - Yule Prior", x = 'tree length') +
-  scale_color_manual(values = colors) +
+  #scale_color_manual(values = colors) +
   theme(legend.position="none")
 
-legend1 <- get_legend(plot5 +  theme(legend.position="right", legend.title = element_blank()))
-legend2 <- get_legend(plot6 +  theme(legend.position="right", legend.title = element_blank()))
+legend1 <- get_legend(plot5 +  theme(legend.position="right", legend.title = "Coarse Data"))
+legend2 <- get_legend(plot6 +  theme(legend.position="right", legend.title = "Coarse Data"))
 
 #plot_grid(plot1, plot2, plot3, plot4, legend, align = 'hv', ncol= 2, rel_widths = c(1,1,1,.1))
 plot_grid(plot1, plot3, plot5, legend1, plot2, plot4, plot6, legend2,  align = 'hv', nrow= 2, rel_widths = c(1,1,1,.3,1,1,1,.3))
@@ -130,7 +130,7 @@ plot1_o <- ggplot() + geom_histogram(data = data_flat_old[500:1000,], aes(x = ro
   geom_histogram(data = data_flat_zero_old[500:1000,], aes(x = root_time, color = "Prior"), fill = 'white', bins = 100, alpha = 0.3) + 
   #geom_histogram(data = data_flat_old[500:1000,], aes(x = root_time, color = "Full Data lkd"), fill = 'white', bins = 100, alpha = 0.3) + 
   labs(title='Histogram for root time - Flat Prior') + 
-  #scale_color_manual(values = colors) +
+  scale_color_manual(values = colors) +
   theme(legend.position="none") 
 
 plot2_o <- ggplot() + geom_histogram(data = data_yule_old[500:1000,], aes(x = root_time, color = "Posterior"), bins = 100, fill = "white", alpha = 0.3) +
@@ -144,7 +144,7 @@ plot3_o <-ggplot() + geom_histogram(data = data_flat_old[500:1000,], aes(x = mu,
   scale_y_continuous('count', limits = c(0,50))  + 
   geom_histogram(data = data_flat_zero_old[500:1000,], aes(x = mu, color = "Prior"), bins = 100, alpha = 0.5, fill = "white") + 
   labs(title= expression(paste("Histogram for ", mu, "- Flat Prior"))) + 
-  #scale_color_manual(values = colors) + 
+  scale_color_manual(values = colors) + 
   theme(legend.position="none")
 
 plot4_o <- ggplot() + geom_histogram(data = data_yule_old[500:1000,], aes(x = mu, color = "Posterior"), bins = 100, fill = "white", alpha = 0.3) +
@@ -158,17 +158,29 @@ plot4_o <- ggplot() + geom_histogram(data = data_yule_old[500:1000,], aes(x = mu
 plot5_o <- ggplot() + geom_histogram(data = treelens_flat_old[500:1000,], aes(x = lens, color = "Posterior"), fill = 'white', bins = 100,  alpha = 0.3) + 
   geom_histogram(data = treelens_flat_old_zero[500:1000,], aes(x = lens, color = "Prior"), fill = 'white', bins = 100, alpha = 0.3) +
   labs(title= "Histogram for tree length - Flat Prior", x = 'tree length') +
+  scale_color_manual(values = colors, name ="Full Data") +
   theme(legend.position="none")
 
 plot6_o  <- ggplot() + geom_histogram(data = treelens_yule_old[500:1000,], aes(x = lens, color = "Posterior"), fill = 'white', bins = 100,  alpha = 0.3) + 
   geom_histogram(data = treelens_yule_old_zero[500:1000,], aes(x = lens, color = "Prior"), fill = 'white', bins = 100, alpha = 0.3) + 
   labs(title= "Histogram for tree length - Yule Prior", x = 'tree length') +
-  scale_color_manual(values = colors) +
+  scale_color_manual(values = colors, name ="Full Data") +
   theme(legend.position="none")
 
-legend1_o <- get_legend(plot5_o +  theme(legend.position="right", legend.title = element_blank()))
-legend2_o <- get_legend(plot6_o +  theme(legend.position="right", legend.title = element_blank()))
+legend1_o <- get_legend(plot5_o +  theme(legend.position="right"))
+legend2_o <- get_legend(plot6_o +  theme(legend.position="right"))
 
 #plot_grid(plot1, plot2, plot3, plot4, legend, align = 'hv', ncol= 2, rel_widths = c(1,1,1,.1))
 plot_grid(plot1_o, plot3_o, plot5_o, legend1_o, plot2_o, plot4_o, plot6_o, legend2_o,  align = 'hv', nrow= 2, rel_widths = c(1,1,1,.3,1,1,1,.3))
 
+
+plot_grid(plot1, plot3, plot5, legend1, plot2, plot4, plot6, legend2,  align = 'hv', nrow= 2, rel_widths = c(1,1,1,.3,1,1,1,.3))
+ggsave("coarsedata.pdf", width = 20, height = 15)
+ggsave("coarsedata.png")
+plot_grid(plot1_o, plot3_o, plot5_o, legend1_o, plot2_o, plot4_o, plot6_o, legend2_o,  align = 'hv', nrow= 2, rel_widths = c(1,1,1,.3,1,1,1,.3))
+ggsave("fulldata.pdf")
+ggsave("fulldata.png")
+
+plot_grid(plot1, plot3, plot5, legend1, plot2, plot4, plot6, legend2,
+          plot1_o, plot3_o, plot5_o, legend1_o, plot2_o, plot4_o, plot6_o, legend2_o,
+          align = 'hv', nrow= 4, rel_widths = c(1,1,1,.3,1,1,1,.3, 1,1,1,.3,1,1,1,.3))

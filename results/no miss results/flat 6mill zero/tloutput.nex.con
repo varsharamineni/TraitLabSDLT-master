@@ -1,0 +1,9 @@
+#NEXUS 
+[Consensus Tree for /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/results/no miss results/flat 6mill zero/tloutput.nex]
+
+BEGIN TREES;
+
+tree treename = [&R] (((avestan:2184.0667,oldpersian:2237.1666):1947.6646,vedic:3360.0694):1524.2817,((oscan:2527.877,(umbrian:2595.9447,latin:2661.2706):0):1797.0943,(albanian:6458.3426,(greek:4703.9049,((tocharian_b:540.4131,tocharian_a:539.917):4075.1753,(armenian:5019.9001,(((oldnorse:1072.4999,(oldhighgerman:450.2285,oldenglish:475.5563):297.7473):648.6882,gothic:848.1322):2625.1488,(((latvian:1350.3429,lithuanian:1350.3429):967.3844,(oldprussian:1841.4463,oldcslavonic:1341.6763):0):2508.6534,(hittite:3564.8352,((oldirish:923.4799,welsh:2167.9323):3870.2101,(lycian:4266.6881,luvian:3527.3758):0):0):0):0):0):0):0):0):0):0);
+
+END;
+
