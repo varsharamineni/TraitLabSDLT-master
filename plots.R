@@ -2,6 +2,8 @@ library(tidyverse)
 library(gridExtra)
 library(cowplot)
 
+setwd("~/Documents/GitHub/TraitLabSDLT-master/results/no miss results")
+
 
 # DATA -  tree lengths
 treelens_flat <- readr::read_table("flat 6mill/treelength.txt", col_names = c('lens'))
@@ -68,22 +70,16 @@ colors <- c("Posterior" = '#e9a3c9', "Prior" = '#a1d76a')
 #"flat" = '#67a9cf', "flat-zero" = '#ef8a62')
 
 
-
-
 plot1 <- ggplot() + geom_histogram(data = data_flat[500:1000,], aes(x = root_time, color = "Posterior"), fill = 'white', bins = 100,  alpha = 0.3) + 
   scale_x_continuous('root time', breaks = seq(0,20000,2500), limits = c(0,20000)) + 
   geom_histogram(data = data_zero_flat[500:1000,], aes(x = root_time, color = "Prior"), fill = 'white', bins = 100, alpha = 0.3) + 
   #geom_histogram(data = data_flat_old[500:1000,], aes(x = root_time, color = "Full Data lkd"), fill = 'white', bins = 100, alpha = 0.3) + 
-  labs(title='Histogram for root time - Flat Prior') + 
+  labs(title='Histogram for root time) + 
   #scale_color_manual(values = colors) +
   theme(legend.position="none") 
-  #scale_color_manual(values = colors) + 
-  #guides(colour = guide_legend(title.position = "bottom", title = element_blank()))
-#  theme(legend.position = "top", legend.title=element_blank())
-#  theme(axis.text=element_text(size=14), axis.title=element_text(size=14,face="bold"),
-#  legend.text=element_text(size=12),
-#        legend.justification=c(1,1),legend.position=c(1,1),legend.title=element_blank()
-#  )
+
+
+plot1
 
 plot2 <- ggplot() + geom_histogram(data = data_yule[500:1000,], aes(x = root_time, color = "Posterior"), bins = 100, fill = "white", alpha = 0.3) +
   scale_x_continuous('root time', breaks = seq(0,20000,2500), limits = c(0,20000)) + 
@@ -120,8 +116,8 @@ plot6 <- ggplot() + geom_histogram(data = treelens_yule[500:1000,], aes(x = lens
   #scale_color_manual(values = colors) +
   theme(legend.position="none")
 
-legend1 <- get_legend(plot5 +  theme(legend.position="right", legend.title = "Coarse Data"))
-legend2 <- get_legend(plot6 +  theme(legend.position="right", legend.title = "Coarse Data"))
+legend1 <- get_legend(plot5 +  theme(legend.position="right"))
+legend2 <- get_legend(plot6 +  theme(legend.position="right"))
 
 #plot_grid(plot1, plot2, plot3, plot4, legend, align = 'hv', ncol= 2, rel_widths = c(1,1,1,.1))
 plot_grid(plot1, plot3, plot5, legend1, plot2, plot4, plot6, legend2,  align = 'hv', nrow= 2, rel_widths = c(1,1,1,.3,1,1,1,.3))

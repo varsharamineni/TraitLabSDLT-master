@@ -1,4 +1,4 @@
-[s,content,true,clade] = nexus2stype('RingeSwadesh100finescreenbinbayes.nex');
+c[s,content,true,clade] = nexus2stype('RingeSwadesh100finescreenbinbayes.nex');
 
 M = (content.array == 2);
 miss = sum(M, 2);

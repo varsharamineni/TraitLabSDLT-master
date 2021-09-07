@@ -1,5 +1,6 @@
-function synth_data = synthetic_freq(tree, mu, lambda, N)
+function synth_data = synthetic_freq(L, theta, mu, lambda, N)
 
+tree = ExpTree(L, theta);
 state = tree2state(tree);
 
 mat = zeros(N, state.NS) ;
@@ -45,8 +46,9 @@ hold on
 bar(1:content.NS, means, 'EdgeAlpha',.4, 'FaceAlpha',.4)
 
 lgd = legend('Synthetic Data','Poisson Means');
-lgd.FontSize = 15;
-title('Synthetic frequency data vs Poisson Means');
+lgd.FontSize = 12;
+title(['no. of leaves  = ', num2str(L), ' ', '\mu = ', num2str(mu),' ', '\lambda = ', ...
+    num2str(lambda),' ', '\theta = ', num2str(theta) ]);
 ax = gca;
 ax.FontSize = 15;
 
