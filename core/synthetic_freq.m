@@ -1,9 +1,9 @@
 function synth_data = synthetic_freq(L, theta, mu, lambda, N)
 
-tree = ExpTree(L, theta);
-state = tree2state(tree);
+tree = ExpTree(L, theta); % create tree with l leaves, branching rate theta
+state = tree2state(tree); % obtain state values of tree
 
-mat = zeros(N, state.NS) ;
+mat = zeros(N, state.NS) ; % empty matrix to store data
 
 i = 1;
 while i <= N
@@ -30,7 +30,7 @@ end
 
 synth_data = sum(mat)/N;
 
-% getting means - checking likelihood function
+% getting means - to checking likelihood function
 vec = synth_data;
 [lkd, means] = freq_lkd(vec, tree, mu, lambda);
 
