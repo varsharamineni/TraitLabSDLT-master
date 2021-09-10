@@ -29,8 +29,8 @@ s(nodes(10)).cat = 1; s(nodes(10)).catloc = [0.5];
 % Parameters of SDLT process
 tr = [0.1;  ...  % lambda
       3e-4; ...  % mu
-      0; ...  % beta
-      0]; % kappa
+      0.0005; ...  % beta
+      0.221199]; % kappa
 xi = fliplr([s(rl).xi]); % Missing data parameters.
 
 % Generate _N * L_ array of binary site patterns, where _N_ is the total number
@@ -52,6 +52,6 @@ end
 
 % Write to Nexus file
 sFile = stype2nexus(s, '', 'BOTH', '', '');
-fid = fopen(['data', filesep, 'SIM_2.nex'], 'w');
+fid = fopen(['data', filesep, 'SIM1_rootLB.nex'], 'w');
 fprintf(fid, sFile);
 fclose(fid);
