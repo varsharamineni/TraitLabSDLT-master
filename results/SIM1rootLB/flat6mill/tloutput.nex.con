@@ -1,0 +1,9 @@
+#NEXUS 
+[Consensus Tree for /Users/varsharamineni/Documents/GitHub/TraitLabSDLT-master/results/SIM1rootLB/flat6mill/tloutput.nex]
+
+BEGIN TREES;
+
+tree treename = [&R] (1:1888.5076,(9:1740.075,(8:1798.0777,(6:1939.0261,(7:1731.6517,(5:1860.2983,(4:1894.9468,(3:1785.2851,(2:1773.9573,10:1759.5414):0):0):0):0):0):0):0):0);
+
+END;
+
