@@ -47,16 +47,22 @@ data_flat_zero_old <- readr::read_table("oldlkd flat 6mill zero/tloutput.txt", s
                                         col_names = 
                                           c('Sample', 'log_prior', 'integrated_llkd', 
                                             'root_time', 'mu', 'p', 'lambda', 'kappa', 
-                                            'rho', 'ncat', 'log_likelihood', 'beta', 'NA'))
+                                           'rho', 'ncat', 'log_likelihood', 'beta', 'NA'))
 
+
+library(RColorBrewer)
+my_colors <- RColorBrewer::brewer.pal(3, "Set2")
 #colors <- c("Old Posterior" = '#e9a3c9', "Prior" = '#a1d76a', "Old Posterior" = )
+colors <- c("New Posterior" = colors[1], "Prior" =  colors[2],  "Old Posterior" = colors[3])
+
 
 
 ggplot() + geom_histogram(data = data_flat[500:1001,], aes(x = root_time, color = " New Posterior"), fill = 'white', bins = 1000,  alpha = 0.1) +
   scale_x_continuous('root time', breaks = seq(0,20000,2000), limits = c(0,20000)) + 
   geom_histogram(data = data_zero_flat[500:1001,], aes(x = root_time, color = "Prior"), fill = 'white', bins = 1000, alpha = 0.1) + 
   geom_histogram(data = data_flat_old[500:1001,], aes(x = root_time, color = "Old Posterior"), fill = 'white', bins = 1000, alpha = 0.1) + 
-  labs(title='Histogram for root time (Flat prior on tree)') + 
+  labs(title='Histogram for root time (Flat prior on tree)') +
+  #scale_color_manual(scale_color_manual(values=c("Old ="red",N="black")
   theme(legend.position="none", legend.title = element_blank()) 
 
 p1 <- ggplot() + geom_density(data = data_flat[500:1001,], aes(x = root_time, color =" New Posterior", fill = " New Posterior"), alpha = 0.1) + 
@@ -99,11 +105,19 @@ p3 <- ggplot() + geom_histogram(data = data_flat[500:1001,], aes(x = mu, color =
   #scale_color_manual(values = colors) + 
   theme(legend.position="none", legend.title = element_blank()) 
 
-#ggplot() + geom_density(data = data_flat[500:1001,], aes(x = mu, color = "New Posterior"), alpha = 0.1) +
+ggplot() + geom_density(data = data_flat[500:1001,], aes(x = mu, color = " New Posterior", fill = " New Posterior"), alpha = 0.1) + 
+  scale_x_continuous(expression(mu), limits = c(0,0.0003)) + 
+  #geom_density(data = data_zero_flat[500:1001,], aes(x = mu, color = "Prior"), alpha = 0.1) + 
+  geom_density(data = data_flat_old[500:1001,], aes(x = mu, color = "Old Posterior", fill = "Old Posterior"), alpha = 0.1) + 
+  labs(title='Density plot for mu (Flat prior on tree)') + 
+  guides(color = FALSE) + 
+  theme(legend.position="none", legend.title = element_blank()) 
+
+ggplot() + geom_density(data = data_flat[500:1001,], aes(x = mu, color = "New Posterior", fill = "New Posterior"), alpha = 0.1) +
   scale_x_continuous(expression(mu), limits = c(0,0.0003)) + 
   #scale_y_continuous('count', limits = c(0,35))  + 
-  geom_density(data = data_zero_flat[500:1001,], aes(x = mu, color = "Prior"), ) + 
-  geom_density(data = data_flat_old[500:1001,], aes(x = mu, color = "Old Posterior")) + 
+  #geom_density(data = data_zero_flat[500:1001,], aes(x = mu, color = "Prior"), ) + 
+  geom_density(data = data_flat_old[500:1001,], aes(x = mu, color = "Old Posterior", fill = " Old Posterior"), alpha = 0.1) + 
   labs(title= expression(paste("Histogram for ", mu, " (Flat prior on tree)"))) +
   #scale_color_manual(values = colors) + 
   theme(legend.position="none", legend.title = element_blank()) 
@@ -137,6 +151,12 @@ p5 <- ggplot() + geom_histogram(data = treelens_flat[500:1001,], aes(x = lens, c
   geom_histogram(data = treelens_flat_old[500:1001,], aes(x = lens, color = "Old Posterior"), fill = 'white', bins = 100, alpha = 0.1) +
   labs(title= "Histogram for tree length (Flat prior on tree)", x = 'tree length') +
   theme(legend.position="none", legend.title = element_blank()) 
+p5 <- ggplot() + geom_histogram(data = treelens_flat[500:1001,], aes(x = lens, color = "New Posterior"), fill = 'white', bins = 100,  alpha = 0.1) +
+  scale_x_continuous('tree length', breaks = seq(20000,175000,25000), limits = c(20000,175000)) + 
+  geom_histogram(data = treelens_flat_zero[500:1001,], aes(x = lens, color = "Prior"), fill = 'white', bins = 100, alpha = 0.1) +
+  geom_histogram(data = treelens_flat_old[500:1001,], aes(x = lens, color = "Old Posterior"), fill = 'white', bins = 100, alpha = 0.1) +
+  labs(title= "Histogram for tree length (Flat prior on tree)", x = 'tree length') +
+  theme(legend.position="none", legend.title = element_blank()) 
 
 p6 <- ggplot() + geom_histogram(data = treelens_yule[500:1001,], aes(x = lens, color = "New Posterior"), fill = 'white', bins = 100,  alpha = 0.1) +
   scale_x_continuous('tree length', breaks = seq(20000,175000,25000), limits = c(20000,175000)) +
@@ -152,14 +172,16 @@ plot_grid(p5, p6, legend1, ncol= 1, rel_heights= c(1,1,.3))
 # root time against mu values 
 c1 <- ggplot(data = data_flat[500:1001,], aes(x = root_time, y = mu)) + geom_point(aes(x = root_time, y = mu)) + 
   #geom_bin2d(bins = 10, alpha = 0.5) + scale_fill_continuous(type = "viridis") +
+  #scale_x_continuous('root time', breaks = seq(0,16000,2000), limits = c(4500,16000)) +
   geom_density_2d_filled(alpha = 0.3,bins = 7) + 
   geom_density_2d(size = 0.25, colour = "black") + 
-  labs(title = expression(paste("Joint Density Plot of root time and ", mu, "(New)")), y = expression(mu), x = 'Root Time') 
+  labs(title = expression(paste("Joint Density Plot of root time and ", mu, " (New Posterior)")), y = expression(mu), x = 'Root Time') 
 
 c2 <- ggplot(data = data_flat_old[500:1001,], aes(x = root_time, y = mu)) + geom_point(aes(x = root_time, y = mu)) + 
+  #scale_x_continuous('root time', breaks = seq(0,16000,2000), limits = c(4500,16000)) +
   geom_density_2d_filled(alpha = 0.3) + 
   geom_density_2d(size = 0.25, colour = "black") +
-  labs(title = expression(paste("Joint Density Plot of root time and ", mu, "(Old)")), y = expression(mu), x = 'Root Time') 
+  labs(title = expression(paste("Joint Density Plot of root time and ", mu, " (Old Posterior)")), y = expression(mu), x = 'Root Time') 
 
 plot_grid(c1, c2, nrow = 2)
 
