@@ -152,12 +152,12 @@ p5 <- ggplot() + geom_histogram(data = treelens_flat[500:1001,], aes(x = lens, c
   labs(title= "Histogram for tree length (Flat prior on tree)", x = 'tree length') +
   theme(legend.position="none", legend.title = element_blank()) 
 
-p5 <- ggplot() + geom_density(data = treelens_flat[500:1001,], aes(x = root_time, color =" New Posterior", fill = " New Posterior"), alpha = 0.1) + 
-  scale_x_continuous('root time', breaks = seq(0,200000,2000), limits = c(0,200000)) + 
-  geom_density(data = treelens_flat_zero[500:1001,], aes(x = root_time, fill = "Prior", color =" Prior",), alpha = 0.1) + 
-  geom_density(data = treelens_flat_old[500:1001,], aes(x = root_time, fill = "Old Posterior", color =" Old Posterior",), alpha =0.1) + 
-  labs(title='Denisty plot for root time (Flat prior on tree)') + 
-  guides(color = FALSE)+ 
+p5 <- ggplot() + geom_density(data = treelens_flat[500:1001,], aes(x = lens, color =" New Posterior", fill = " New Posterior"), alpha = 0.1) + 
+  scale_x_continuous('total tree length |g|', breaks = seq(20000,170000,25000), limits = c(20000,170000)) + 
+  geom_density(data = treelens_flat_zero[500:1001,], aes(x = lens, fill = "Prior", color =" Prior",), alpha = 0.1) + 
+  geom_density(data = treelens_flat_old[500:1001,], aes(x = lens, fill = "Old Posterior", color =" Old Posterior",), alpha =0.1) + 
+  labs(title='Denisty plot for tree length (Flat prior on tree)') + 
+  scale_color_discrete(guide=FALSE) + 
   theme(legend.position="none", legend.title = element_blank()) 
 
 
@@ -165,19 +165,19 @@ p6 <- ggplot() + geom_histogram(data = treelens_yule[500:1001,], aes(x = lens, c
   scale_x_continuous('tree length', breaks = seq(20000,175000,25000), limits = c(20000,175000)) +
   geom_histogram(data = treelens_yule_zero[500:1001,], aes(x = lens, color = "Prior"), fill = 'white', bins = 100, alpha = 0.1) +
   geom_histogram(data = treelens_yule_old[500:1001,], aes(x = lens, color = "Old Posterior"), fill = 'white', bins = 100, alpha = 0.1) +
-  labs(title= "Histogram for tree length (Yule prior on tree)", x = 'tree length') +
+  labs(title= 'Denisty plot for tree length (Flat prior on tree)', x = 'tree length') +
   theme(legend.position="none")
 
-p6 <- ggplot() + geom_density(data = treelens_yule[500:1001,], aes(x = root_time, color =" New Posterior", fill = " New Posterior"), alpha = 0.1) + 
-  scale_x_continuous('root time', breaks = seq(0,200000,2000), limits = c(0,200000)) + 
-  geom_density(data = treelens_yule_zero[500:1001,], aes(x = root_time, fill = "Prior", color =" Prior",), alpha = 0.1) + 
-  geom_density(data = treelens_yule_old[500:1001,], aes(x = root_time, fill = "Old Posterior", color =" Old Posterior",), alpha =0.1) + 
-  labs(title='Denisty plot for root time (Flat prior on tree)') + 
-  guides(color = FALSE)+ 
+p6 <- ggplot() + geom_density(data = treelens_yule[500:1001,], aes(x = lens, color =" New Posterior", fill = " New Posterior"), alpha = 0.1) + 
+  scale_x_continuous('total tree length |g|', breaks = seq(20000,170000,25000), limits = c(20000,170000)) +
+  geom_density(data = treelens_yule_zero[500:1001,], aes(x = lens, fill = "Prior", color =" Prior",), alpha = 0.1) + 
+  geom_density(data = treelens_yule_old[500:1001,], aes(x = lens, fill = "Old Posterior", color =" Old Posterior",), alpha =0.1) + 
+  labs(title='Denisty plot for tree length (Yule prior on tree)') + 
+  #guides(color = FALSE)+ 
   theme(legend.position="none", legend.title = element_blank()) 
 
 legend3 <- get_legend(p5 +  theme(legend.position="bottom"))
-plot_grid(p5, p6, legend1, ncol= 1, rel_heights= c(1,1,.3))
+plot_grid(p5, p6, legend3, ncol= 1, rel_heights= c(1,1,.3))
 
 
 # root time against mu values 
