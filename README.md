@@ -1,4 +1,6 @@
-# TraitLab with lateral transfer.
+# THIS CODE HAS BEEN TAKEN AND ADPATED FROM (https://github.com/lukejkelly/TraitLab)
+
+#TraitLab with lateral transfer.
 
 ## Description
 
