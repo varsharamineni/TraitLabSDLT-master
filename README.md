@@ -1,4 +1,5 @@
 # THIS CODE HAS BEEN TAKEN AND ADPATED FROM (https://github.com/lukejkelly/TraitLab)
+# FOR PLOTTING CODE FROM MSC DISSERTATION SEE \plots
 
 #TraitLab with lateral transfer.
 
