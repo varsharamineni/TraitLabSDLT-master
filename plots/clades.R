@@ -1,6 +1,5 @@
 library(ggplot2)
 
-  
 clade = c('hittite', 'tocharian_a', 'tocharian_b', 'luvian', 'lycian',
                           'oldirish', 'umbrian', 'oscan', 'latin', 'greek', 'greek (diverge)', 'armenian', 'gothic', 'oldnorse',
                           'oldenglish', 'oldhighgerman', 'oldcslavonic', 'oldprussian', 'avestan', 'oldpersian', 'vedic',
@@ -23,15 +22,8 @@ length(rootmin)
 length(rootmax)
 
 df = data.frame(clade = clade, rootmin = rootmin, rootmax = rootmax, type = type, taxa = taxa)
-df1 <- df %>% filter(taxa == 'Single taxa')
-df1
-df2 <- df %>% filter(taxa == 'Group of taxa')
-df2
 
-df_m <- df[order(rootmin, decreasing = T),]
-df_m
-
-ggplot(data = df_m)+
+ggplot(data = df)+
   geom_segment(aes(x = clade, xend = clade, y = rootmin, yend = rootmax, colour = as.factor(taxa)), size = 5, alpha = 0.6) +
   coord_flip() +
   scale_x_discrete(limits = as.character(df_m$clade))+
@@ -40,15 +32,3 @@ ggplot(data = df_m)+
   labs(title = 'Clade Constraint Intervals', x = 'Clade Name')
 #facet_wrap(as.factor(Taxa), drop=TRUE, scales="free_y")
 
-ggplot(data = df1)+
-  geom_segment(aes(x = clade, xend = clade, y = rootmin, yend = rootmax, colour = as.factor(type)), size = 5, alpha = 0.6) +
-  coord_flip() +
-  scale_x_discrete(limits = as.character(df1$clade))+
-  ylab("Time") 
-  #facet_wrap(as.factor(Taxa), drop=TRUE, scales="free_y")
-
-ggplot(data = df2)+
-  geom_segment(aes(x = clade, xend = clade, y = rootmin, yend = rootmax, colour = 'blue'), color = 'blue', size = 5, alpha = 0.6) +
-  coord_flip() +
-  scale_x_discrete(limits = as.character(df2$clade))+
-  ylab("Time") 
