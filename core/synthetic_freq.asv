@@ -19,7 +19,7 @@ i = 1;
 while i <= N
     content = pop('content');
     
-    % creating data according to SD model
+    % creating data according to SD m
     [seq,content.language,content.cognate,content.NS,content.L] = ...
     MutationsRH(mu, 1, lambda, tree, []);
 
@@ -39,7 +39,7 @@ while i <= N
     i = i + 1;
 end 
 
-synth_data = sum(mat)/N; % avg over the N datasets 
+synth_data = sum(mat)/N;
 
 % getting means - to checking likelihood function
 vec = synth_data;

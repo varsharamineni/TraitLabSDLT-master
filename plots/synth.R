@@ -183,11 +183,11 @@ upper[10] <- HPDinterval(old_mcmc5, prob = 0.95)[2]
 mean [10] <- summary(old_mcmc5)$statistics['Mean']
 
 df <- data.frame(data = data, lower = lower, upper = upper, mean = mean, true = true, posterior = posterior)
-
+df$data <- factor(df$data, levels = c("SIM1", "SIM2", "SIM3", "SIM4", "SIM5"))
 
 ggplot(df) + geom_point(aes(x = true, y = data, color = "TRUE VALUE"), shape = 'cross') + 
   geom_point(aes(x = mean, y = data, color = as.factor(posterior)), shape = 'cross') + 
-  geom_ribbon(data= df,aes(xmin= lower,xmax= upper, y = data),alpha=0.3) + 
+  geom_ribbon(aes(xmin= lower,xmax= upper, y = data),alpha=0.3) + 
   geom_errorbar(aes(xmin=lower, xmax = upper, y = data, color = as.factor(posterior)), width=.2,
                 position=position_dodge(.9)) + 
   labs(x = expression(mu), y = 'Synthetic Data Set', title = 'Mean and HPD intervals of death rate', color = "") + 
@@ -196,7 +196,7 @@ ggplot(df) + geom_point(aes(x = true, y = data, color = "TRUE VALUE"), shape = '
   theme(legend.position="top")
   #theme(legend.position="top", title = element_blank()) 
   
-   
+df[rev(1:10),]
   
   
 

@@ -1,15 +1,17 @@
-function lkd = freq_lkd_multi(n, s, mu, lambda)
+function lkd = freq_lkd_multi(n, s, mu)
 
 % returns the log likelihood of the observed frequencies 
+% multinomial - lambda is integrated out 
 
 % n vector of frequencies 
 % s - tree structure 
+% mu - death rate
 
 global LEAF
 
 state = tree2state(s);
-L = state.NS;
-R = state.root;
+L = state.NS; % get no. of leaves
+R = state.root; % get label of root node
 
 % fill in probability values
 s = u_recursion(s, mu, R);
@@ -34,11 +36,8 @@ means = means + s(R).u1(2:L+1);
 
 means = 1/mu * means;
 
-in = mnpdf(n,means)
+in = mnpdf(n, means/sum(means));
 
-lkd = log(prod(poisspdf(n, means)));
-
-
-
+lkd = log(in);
 
 end

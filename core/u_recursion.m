@@ -1,7 +1,8 @@
 function s = u_recursion(s, mu, i)
 
 % adds field u1 to  s (tree structure)
-% probabilities that a trait born on node i ends up on [0,1,2,...L] leaves
+% output probabilities that a trait born on node i ends up on [0,1,2,...L] leaves
+% mu - death rate
 
 global LEAF;
 

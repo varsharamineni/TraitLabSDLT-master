@@ -28,13 +28,13 @@ freq = sum(mat, 2).'; % get frequencies
 a = unique(freq); 
 a = a(a ~= 0); % remove 0 freq
 
-data = [a; histc(freq(:),a).']; % create table
+data = [a; histc(freq(:),a).'];
 
 vec = zeros(1,state.NS);
 
 vec(data(1,:))= data(2,:);
 
-freq = vec; % final vector of frequencies 
+freq = vec;
 
 
 end

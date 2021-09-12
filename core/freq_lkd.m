@@ -1,21 +1,23 @@
 function [lkd, means] = freq_lkd(n, s, mu, lambda)
-
 % returns the log likelihood of the observed frequencies 
 
-% n vector of frequencies 
+% n -  vector of frequencies 
 % s - tree structure 
+% mu - death rate 
+% lambda - birth rate
 
 global LEAF
 
 state = tree2state(s);
-L = state.NS;
-R = state.root;
+L = state.NS; % get no. of leaves 
+R = state.root; %get root node label 
 
 % fill in probability values
 s = u_recursion(s, mu, R);
 
-means = zeros(1, L);
+means = zeros(1, L); % empty vector to store means
 
+% summing over every branch 
 for i = state.nodes
     
     t = s(i).time;
@@ -29,11 +31,13 @@ for i = state.nodes
     
 end
 
-% adam to root node
+% adding term for adam to root node
 means = means + s(R).u1(2:L+1);
 
+% scaling the means
 means = lambda/mu * means;
 
+% final log lkd 
 lkd = log(prod(poisspdf(n, means)));
 
 end

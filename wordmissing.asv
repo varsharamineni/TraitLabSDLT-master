@@ -4,10 +4,9 @@
 [s,content,true,clade] = nexus2stype('RingeSwadesh100finescreenbinbayes.nex');
 
 M = (content.array == 2);
-miss = sum(M, 2); % sum of no. of missing values in matrix acorss taxa
+miss = sum(M, 2);
 
-% empty vector to fill in percentages 
-perc = zeros(1, content.NS); 
+perc = zeros(1, content.NS);
 
 miss_lang = {};
 
@@ -19,10 +18,9 @@ for i = 1:content.NS
     end
 end
 
-% langauges with over 10% missing
-miss_lang
-% percentages of missing data across all languages 
-perc 
+miss_lang % langauges with over 
+perc
+content.language
 
-% labels of taxa with high no. missing data
+% labels of taxa with highn no. missing data
 %3,4,5,7,9,15,20,22,24
